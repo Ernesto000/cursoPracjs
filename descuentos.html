@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Header><h1>Descuentos</h1></Header>
+    <section>
+        <h2>Calcula precios</h2>
+        <form action="">
+            <label for="InputPrice">Precio</label>
+            <input type="number" id="InputPrice">
+
+            <label for="InputDiscount">Descuento</label>
+            <input type="number" id="InputDiscount">
+
+            <button type="button" onclick="onClickDescuentox()"> 
+                calcular el precio con descuento
+            </button>
+
+            <p id="resultDisc"></p>
+        </form>
+    </section>
+    
+    <script >
+        //const pOri = 100;
+        //const desc  = 15;
+
+        function calcularPrecioConDescuento(precio, descuento){
+    const porcentajePrecioConDescuento = 100 - descuento;
+    const precioConDesc = (precio *porcentajePrecioConDescuento)/100;
+
+    return precioConDesc;
+    }
+        function onClickDescuentox(){
+            const inputPrice = document.getElementById("InputPrice");
+            const priceValue = inputPrice.value;
+
+            const inputDiscount = document.getElementById("InputDiscount");
+            const priceDiscount = inputDiscount.value;
+
+            const precioConDesc = calcularPrecioConDescuento(priceValue,priceDiscount); 
+
+            const resultDisc = document.getElementById("resultDisc");
+            resultDisc.innerText = "El precio con descuento son: $" + precioConDesc;
+        }
+
+
+
+        //console.log({pOri,desc,porcentajePrecioConDescuento,precioConDesc});
+    </script>
+</body>
+</html>
